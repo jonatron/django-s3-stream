@@ -50,7 +50,6 @@ class ThreadedS3BotoStorage(S3BotoStorage):
         pool.close()
         pool.join()
 
-        print ""
         if len(mp.get_all_parts()) == chunk_amount:
             mp.complete_upload()
             key = self.bucket.get_key(key.name)
